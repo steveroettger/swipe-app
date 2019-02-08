@@ -1,0 +1,23 @@
+<div class="container">
+  <h2 class="page-title p-4 mb-3">Messages</h2>
+
+  <div class="card-container mb-2" *ngFor="let message of messages; let i = index" (swipeleft)="swipe(i, $event.type)" (swiperight)="swipe(i, $event.type)">
+    <div id="messageCard-{{i}}" class="card py-3 px-3 px-md-4" [class.message-swiped]="(swipedMessageIndex === i)">
+      <div class="d-flex">
+        <div class="mr-3">
+          <div class="avatar d-flex justify-content-center align-items-center font-weight-bold rounded-circle">{{message.initials}}</div>
+        </div>
+        <div class="card-content">
+          <h3 class="mb-1">{{message.name}}</h3>
+          <p>{{message.content}}</p>
+        </div><!-- /.card-content -->
+      </div>
+    </div><!-- /.card -->
+
+    <div class="card-action-buttons d-flex">
+      <button type="button" class="card-btn edit-btn d-flex align-content-center justify-content-center">Edit</button>
+      <button type="button" class="card-btn delete-btn d-flex align-content-center justify-content-center">Delete</button>
+    </div><!-- /.card-action-buttons -->
+  </div><!-- /.card-container -->
+
+</div><!-- /.container -->
